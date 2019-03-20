@@ -1,0 +1,16 @@
+Package: FARS
+Type: Package
+Title: Read, Summarize and Plot Maps of data from FARS.
+Version: 0.1.0
+Author: Awal Nazif
+Maintainer: The package maintainer <awalnazif@yahoo.com>
+Description: This package is used to read, summarize and plot maps of data from the US National Highway Traffic 
+    Safety Administration's Fatality Analysis Reporting System.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+RoxygenNote: 6.1.1

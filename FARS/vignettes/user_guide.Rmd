@@ -1,0 +1,63 @@
+---
+title: "User Guide - FARS"
+author: "Awal Nazif"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{User Guide - FARS}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction to the FARS Package
+
+This package is used to read, summarize and plot maps of data from the US National Highway Traffic Safety Administration's Fatality Analysis Reporting System.
+
+## How to read a file using the fars_read function in the FARS Package
+
+The fars_read function only takes one argument, the name of csv file to read. If the specified filename exists in the working directory, the fars_read function turns it into a tibble data and if the filename does not exist, "file "filename" does not exists" is printed.
+
+```{r}
+fars_read("accident_2013.csv")
+```
+
+## How to create a filename based on the input year using the make_filename function
+
+The make_filename function returns a filename in the format "accident_year.csv.bz2", using the year as the input argument.
+
+```{r}
+make_filename(2013)
+```
+
+## How to read in "FARS" data by specifying the year using the fars_read_years function
+
+The fars_read_years function takes a year as the only argument and returns the months and year as a list. A warning message is thrown, when an invalid year is chosen as an input.
+
+```{r}
+fars_read_years(2013)
+```
+
+## How to summarize number per month in a specified year using the fars_summarize_years function
+
+This fars_summarize_years function summarizes "FARS" data per month in a given year, tha is specifid as the input argument. 
+
+```{r}
+fars_summarize_years(2013)
+```
+
+## How to create a map of a givne state with the distribution of accidents
+
+The fars_map_state function takes two argument, the state number (state.num) and the year and plots the geographical boundaries of a state and the distribution of reported accidents within the state.
+
+```{r}
+fars_map_state(18, 2013)
+```
+
+
